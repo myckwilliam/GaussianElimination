@@ -17,12 +17,12 @@ A[2] = ('1 1 1'.split(' ')).parse();
 const b = ('-3 3 2'.split(' ')).parse();
 
 function gaussSolver(A, b){
-    var i, j, k, l, m;
+    let i, j, k, l, m;
     //ETAPA DE ESCALONAMENTO
     for(k = 0; k < A.length - 1; k++){
         //procura o maior k-ésimo coeficiente em módulo
-        var max = Math.abs(A[k][k]);
-        var maxIndex = k;
+        let max = Math.abs(A[k][k]);
+        let maxIndex = k;
         for(i = k + 1; i < A.length; i++){
             if(max < Math.abs(A[i][k])){
                 max = Math.abs(A[i][k]);
@@ -35,11 +35,11 @@ function gaussSolver(A, b){
              maior k-ésimo coeficiente em módulo
              */
             for(j = 0; j < A.length; j++){
-                var temp = A[k][j];
+                let temp = A[k][j];
                 A[k][j] = A[maxIndex][j];
                 A[maxIndex][j] = temp;
             }
-            var temp = b[k];
+            let temp = b[k];
             b[k] = b[maxIndex];
             b[maxIndex] = temp;
         }
@@ -50,7 +50,7 @@ function gaussSolver(A, b){
         }else{
             //realiza o escalonamento
             for(m = k + 1; m < A.length; m++){
-                var F = -A[m][k] / A[k][k];
+                let F = -A[m][k] / A[k][k];
                 A[m][k] = 0; //evita uma iteração
                 b[m] = b[m] + F * b[k];
                 for(l = k + 1; l < A.length; l++){
@@ -60,7 +60,7 @@ function gaussSolver(A, b){
         }
     }
     //ETAPA DE RESOLUÇÃO DO SISTEMA
-    var X = [];
+    let X = [];
     for(i = A.length - 1; i >= 0; i--){
         X[i] = b[i];
         for(j = i + 1; j < A.length; j++){
