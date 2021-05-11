@@ -11,10 +11,10 @@ Array.prototype.parse = function() {
     return arr
 }
 
-A[0] = ('2 1 -1'.split(' ')).parse();
-A[1] = ('1 2 1'.split(' ')).parse();
-A[2] = ('1 1 1'.split(' ')).parse();
-const b = ('-3 3 2'.split(' ')).parse();
+A[0] = ('1 -3 -2'.split(' ')).parse();
+A[1] = ('-3 1 -10'.split(' ')).parse();
+A[2] = ('-2 3 -2'.split(' ')).parse();
+const b = ('0 0 0'.split(' ')).parse();
 
 function gaussSolver(A, b){
     let i, j, k, l, m;
@@ -71,4 +71,4 @@ function gaussSolver(A, b){
     return X;
 }
 const x = gaussSolver(A, b);
-console.log(`x1 = ${x[0].toFixed(2)}, x2 = ${x[1].toFixed(2)}, x3 = ${x[2].toFixed(2)}`);
+console.log(`x1 = ${x[0].toFixed(2)}, x2 = ${x[1].toFixed(2)} x3 = ${x[2].toFixed(2)} `);
